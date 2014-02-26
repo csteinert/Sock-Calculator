@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>SOCK CALCULATOR</title>
+		<link href='http://fonts.googleapis.com/css?family=Alegreya:400,900,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+		<link href='styles/sock-calc-styles.css' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="js/sock-calculator.js"></script>
+	</head>
+	<body>
+		<main>
+		    <section id="measurement-intake">
+		        <h1>Sock-o-matic</h1>
+		        <form>
+		            <fieldset>
+		                <legend>What's your gauge, Homes?</legend>
+		                <label>Stitches per inch</label>
+		                <input type="text" />
+		                <label>Rows per inch</label>
+		                <input type="text" />
+		            </fieldset>
+		            <fieldset>
+		                <legend>What're your measurements, Homes?</legend>
+		                <label>Cuff length</label>
+		                <input type="text" />
+		                <label>Leg length</label>
+		                <input type="text" />
+		                <label>Heel length</label>
+		                <input type="text" />
+		                <label>Foot length (heel to toe joints)</label>
+		                <input type="text" />
+		                <label>Toe length (measure longest toe)</label>
+		                <input type="text" />
+		            </fieldset>
+		            <button type="submit">Cal-cu-late!</button>
+		        </form>
+		    </section>
+		    <section>
+		        <h1>Here's your pattern, Homes.</h1>
+		        <ol>
+		            <li id="castOnCuff">Cast on <span class="cuff-stitches"></span> stitches. Separate the stitches as evenly as possible onto three needles.</li>
+		            <li>Join, taking care not to twist the work.</li>
+		            <li id="workCuff">Work cuff in pattern for <span class="cuff-rows"></span> rows.</li>
+		            <li id="workLeg">Work leg in pattern for <span class="leg-rows"></span> rows.</li>
+		            <li id="separateHeel">At the beginning of the next row, separate the next <span class="heel-stitches"></span> stitches onto one needle.</li>
+		            <li>Work the separated stitches in a s1k1 pattern.</li>
+		            <li>Turn work, s1 and purl to end of row.</li>
+		            <li id="workHeel">Repeat steps five and six for <span class="heel-rows"></span> rows.</li>
+		            <li id="splitHeel">Knit the next row for <span class="split-heel-stitches"></span> stitches.</li>
+		            <li>Knit the next 2 stitches together, turn work.</li>
+		            <li>Purl <span class="heel-work"></span> stitches, p2tog, turn work.</li>
+		            <li>Knit <span class="heel-work"></span> stitches, k2tog, turn work.</li>
+		            <li id="heelRemainder">Repeat the last two rows until all stitches have been worked. <span class="heel-base"></span> stitches should remain.</li>
+		            <li>With RS facing you, pick up and knit <span class="gusset-pick-up-stitches"></span> stitches along the side of the heel flap. Knit the stitches on needles # thru #. Pick up and knit <span class="gusset-pick-up-stitches"></span> stitches from the remaining side of the heel flap.</li>
+		            <li>Decrease by 2 stitches every other row</li>
+		            <li>Knit to toe.</li>
+		            <li>Knit the toe.</li>
+		        </ol>
+		    </section>
+		</main>
+	</body>
+</html>
