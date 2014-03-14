@@ -15,22 +15,24 @@
 		            <fieldset>
 		                <legend>What's your gauge, Homes?</legend>
 		                <label>Stitches per inch</label>
-		                <input type="text" name="stitchesPerInch"/>
+		                <input type="number" name="stitchesPerInch" value="10"/>
 		                <label>Rows per inch</label>
-		                <input type="text" />
+		                <input type="number" name="rowsPerInch" value="10" />
 		            </fieldset>
 		            <fieldset>
 		                <legend>What're your measurements, Homes?</legend>
 		                <label>Cuff length</label>
-		                <input type="text" />
+		                <input type="number" />
+		                <label>Cuff circumference</label>
+		                <input type="number" name="circumferenceOfCuff" value="6" />
 		                <label>Leg length</label>
-		                <input type="text" />
+		                <input type="number" />
 		                <label>Heel length</label>
-		                <input type="text" />
+		                <input type="number" />
 		                <label>Foot length (heel to toe joints)</label>
-		                <input type="text" />
+		                <input type="number" />
 		                <label>Toe length (measure longest toe)</label>
-		                <input type="text" />
+		                <input type="number" />
 		            </fieldset>
 		            <button type="submit" id="calculate">Cal-cu-late!</button>
 		        </form>
