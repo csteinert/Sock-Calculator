@@ -41,7 +41,12 @@ $(document).ready(function () {
         }
     };
     
-    var numberOfCuffStitches = stitchCalculator.cuffStitches (5, 10);
+    $('#calculate').click(function() {
+         var stitchesPerInch = $('input[name=stitchesPerInch]').val();
+         return stitchesPerInch;
+    });
+
+    var numberOfCuffStitches = stitchCalculator.cuffStitches (stitchesPerInch, 10);
     var numberOfCuffRows = stitchCalculator.cuffRows (3, 3);
     var numberOfLegRows = stitchCalculator.legRows (3, 5);
     var numberOfHeelStitches = stitchCalculator.heelStitches(numberOfCuffStitches);
@@ -58,4 +63,5 @@ $(document).ready(function () {
     $(".split-heel-stitches").text(heelTurn.heelTurnStitches + heelTurn.heelDecreaseStitches - 1);
     $(".heel-work").text(heelTurn.heelTurnStitches - 1);
     $(".gusset-pick-up-stitches").text(numberOfGussetPickUpStitches);
+
 });
