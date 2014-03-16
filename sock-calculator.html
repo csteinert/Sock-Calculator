@@ -15,24 +15,24 @@
 		            <fieldset>
 		                <legend>What's your gauge, Homes?</legend>
 		                <label>Stitches per inch</label>
-		                <input type="number" name="stitchesPerInch" value="10"/>
+		                <input type="number" name="stitchesPerInch" step="any" required value="10"/>
 		                <label>Rows per inch</label>
-		                <input type="number" name="rowsPerInch" value="10" />
+		                <input type="number" name="rowsPerInch" step="any" required value="10" />
 		            </fieldset>
 		            <fieldset>
 		                <legend>What're your measurements, Homes?</legend>
 		                <label>Cuff length</label>
-		                <input type="number" />
+		                <input type="number" name="lengthOfCuff" step="any" required value="3" />
 		                <label>Cuff circumference</label>
-		                <input type="number" name="circumferenceOfCuff" value="6" />
+		                <input type="number" name="circumferenceOfCuff" step="any" required value="6" />
 		                <label>Leg length</label>
-		                <input type="number" />
+		                <input type="number" name="lengthOfLeg" step="any" required value="5" />
 		                <label>Heel length</label>
-		                <input type="number" />
+		                <input type="number" name="lengthOfHeel" step="any" required value="3" />
 		                <label>Foot length (heel to toe joints)</label>
-		                <input type="number" />
+		                <input type="number" name="lengthOfFoot" step="any" required value="10.5" />
 		                <label>Toe length (measure longest toe)</label>
-		                <input type="number" />
+		                <input type="number" name="lengthOfToe" step="any" required value="2" />
 		            </fieldset>
 		            <button type="submit" id="calculate">Cal-cu-late!</button>
 		        </form>
@@ -53,10 +53,10 @@
 		            <li>Purl <span class="heel-work"></span> stitches, p2tog, turn work.</li>
 		            <li>Knit <span class="heel-work"></span> stitches, k2tog, turn work.</li>
 		            <li id="heelRemainder">Repeat the last two rows until all stitches have been worked. <span class="heel-base"></span> stitches should remain.</li>
-		            <li>With RS facing you, pick up and knit <span class="gusset-pick-up-stitches"></span> stitches along the side of the heel flap. Knit the stitches on needle 2 (?). Pick up and knit <span class="gusset-pick-up-stitches"></span> stitches from the remaining side of the heel flap. Knit the heel stitches.</li>
+		            <li>With RS facing you, pick up and knit <span class="gusset-pick-up-stitches"></span> stitches along the side of the heel flap. Knit the stitches on needle 2 (?). Pick up and knit <span class="gusset-pick-up-stitches"></span> stitches from the remaining side of the heel flap. Knit the heel stitches. (<span class="gusset-remainder-stitches"></span> stitches)</li>
 		            <li>Knit the next round.</li>
-		            <li>Decrease by 2 stitches every other row for ____ rows. (___ stitches)</li>
-		            <li>Knit to toe.</li>
+		            <li>Decrease by 2 stitches every other row for <span class="gusset-decrease-rows"></span> rows. (<span class="cuff-stitches"></span> stitches)</li>
+		            <li>Knit for <span class="foot-work"></span> rows.</li>
 		            <li>Knit the toe.</li>
 		        </ol>
 		    </section>
