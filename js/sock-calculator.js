@@ -16,6 +16,14 @@ $(document).ready(function () {
             var calcHalfCuffStitches = cuffStitches/2;
             return calcHalfCuffStitches;
         },
+        thirdCuffStitches: function (cuffStitches) {
+            var calcThirdCuffStitches = cuffStitches/3;
+            return calcThirdCuffStitches;
+        },
+        quarterCuffStitches: function (cuffStitches) {
+            var calcQuarterCuffStitches = cuffStitches/4;
+            return calcQuarterCuffStitches;
+        },
         heelRows: function (gaugeRows, heelLength) {
             var calcHeelRows = gaugeRows*heelLength;
             if (calcHeelRows % 2 > 0) {
@@ -65,6 +73,8 @@ $(document).ready(function () {
 
 
         var numberOfCuffStitches = stitchCalculator.cuffStitches (stitchesPerInch, circumferenceOfCuff);
+        var thirdOfCuffStitches = stitchCalculator.thirdCuffStitches(numberOfCuffStitches);
+        var quarterOfCuffStitches = stitchCalculator.quarterCuffStitches(numberOfCuffStitches);
         var numberOfCuffRows = stitchCalculator.cuffRows (rowsPerInch, lengthOfCuff);
         var numberOfLegRows = stitchCalculator.legRows (rowsPerInch, lengthOfLeg);
         var halfOfCuffStitches = stitchCalculator.halfCuffStitches(numberOfCuffStitches);
@@ -73,8 +83,11 @@ $(document).ready(function () {
         var numberOfGussetPickUpStitches = stitchCalculator.gussetPickUpStitches(lengthOfHeel, rowsPerInch);
         var gussetDecrease = stitchCalculator.gussetDecrease(halfOfCuffStitches,numberOfGussetPickUpStitches,heelTurn.heelTurnStitches);
         var footRows = stitchCalculator.footRows(rowsPerInch,lengthOfFoot,gussetDecrease.gussetDecreaseRows);
+
         
         $(".cuff-stitches").text(numberOfCuffStitches);
+        $(".third-cuff-stitches").text(thirdOfCuffStitches);
+        $(".quarter-cuff-stitches").text(quarterOfCuffStitches);
         $(".cuff-rows").text(numberOfCuffRows);
         $(".leg-rows").text(numberOfLegRows);
         $(".heel-stitches").text(halfOfCuffStitches);
