@@ -1,39 +1,39 @@
-$(document).ready(function () {
-    var stitchCalculator = {
-        cuffStitches: function (gaugeStitches, cuffCircumference) {
-            var calcCuffStitches = gaugeStitches*cuffCircumference;
+$(document).ready(() => {
+    const stitchCalculator = {
+        cuffStitches: (gaugeStitches, cuffCircumference) => {
+            let calcCuffStitches = gaugeStitches*cuffCircumference;
             return calcCuffStitches;
         },
-        cuffRows: function (gaugeRows, cuffLength) {
-            var calcCuffRows = gaugeRows*cuffLength;
+        cuffRows: (gaugeRows, cuffLength) => {
+            let calcCuffRows = gaugeRows*cuffLength;
             return calcCuffRows;
         },
-        legRows: function (gaugeRows, legLength) {
-            var calcLegRows = gaugeRows*legLength;
+        legRows: (gaugeRows, legLength) => {
+            let calcLegRows = gaugeRows*legLength;
             return calcLegRows;
         },
-        halfCuffStitches: function (cuffStitches) {
-            var calcHalfCuffStitches = cuffStitches/2;
+        halfCuffStitches: (cuffStitches) => {
+            let calcHalfCuffStitches = cuffStitches/2;
             return calcHalfCuffStitches;
         },
-        thirdCuffStitches: function (cuffStitches) {
-            var calcThirdCuffStitches = cuffStitches/3;
+        thirdCuffStitches: (cuffStitches) => {
+            let calcThirdCuffStitches = cuffStitches/3;
             return calcThirdCuffStitches;
         },
-        quarterCuffStitches: function (cuffStitches) {
-            var calcQuarterCuffStitches = cuffStitches/4;
+        quarterCuffStitches: (cuffStitches) => {
+            let calcQuarterCuffStitches = cuffStitches/4;
             return calcQuarterCuffStitches;
         },
-        heelRows: function (gaugeRows, heelLength) {
-            var calcHeelRows = gaugeRows*heelLength;
+        heelRows: (gaugeRows, heelLength) => {
+            let calcHeelRows = gaugeRows*heelLength;
             if (calcHeelRows % 2 > 0) {
                 calcHeelRows += 1;
             }
             return calcHeelRows;
         },
-        heelTurn: function (halfCuffStitches) {
-            var heelDecreaseStitches;
-            var calcHeelTurnBase = 10;
+        heelTurn: (halfCuffStitches) => {
+            let heelDecreaseStitches;
+            let calcHeelTurnBase = 10;
             if ((halfCuffStitches - calcHeelTurnBase) % 2 > 0) {
                 calcHeelTurnBase -= 1;
             }
@@ -43,46 +43,46 @@ $(document).ready(function () {
                 heelDecreaseStitches: heelDecreaseStitches
             };
         },
-        gussetPickUpStitches: function (heelLength, gaugeRows) {
-            var calcGussetPickUpStitches = gaugeRows*heelLength;
+        gussetPickUpStitches: (heelLength, gaugeRows) => {
+            let calcGussetPickUpStitches = gaugeRows*heelLength;
             return calcGussetPickUpStitches;
         },
-        gussetDecrease: function (halfCuffStitches, gussetPickUpStitches, heelTurnStitches) {
-            var calcGussetRemainderStitches = halfCuffStitches + (gussetPickUpStitches * 2) + heelTurnStitches;
-            var calcGussetDecreaseRows = calcGussetRemainderStitches - (halfCuffStitches * 2);
+        gussetDecrease: (halfCuffStitches, gussetPickUpStitches, heelTurnStitches) => {
+            let calcGussetRemainderStitches = halfCuffStitches + (gussetPickUpStitches * 2) + heelTurnStitches;
+            let calcGussetDecreaseRows = calcGussetRemainderStitches - (halfCuffStitches * 2);
             return {
                 gussetRemainderStitches: calcGussetRemainderStitches,
                 gussetDecreaseRows: calcGussetDecreaseRows
             };
         },
-        footRows: function (gaugeRows, footLength, gussetDecreaseRows) {
-            var calcFootRows = (footLength*gaugeRows) - gussetDecreaseRows;
+        footRows: (gaugeRows, footLength, gussetDecreaseRows) => {
+            let calcFootRows = (footLength*gaugeRows) - gussetDecreaseRows;
             return calcFootRows;
         }
     };
     
-    $('#calculate').click(function() {
-        var stitchesPerInch = parseFloat($('input[name=stitchesPerInch]').val());
-        var rowsPerInch = parseFloat($('input[name=rowsPerInch]').val());
-        var circumferenceOfCuff = parseFloat($('input[name=circumferenceOfCuff]').val());
-        var lengthOfCuff = parseFloat($('input[name=lengthOfCuff]').val());
-        var lengthOfLeg = parseFloat($('input[name=lengthOfLeg]').val());
-        var lengthOfHeel = parseFloat($('input[name=lengthOfHeel]').val());
-        var lengthOfFoot = parseFloat($('input[name=lengthOfFoot]').val());
-        var lengthOfToe = parseFloat($('input[name=lengthOfToe]').val());
+    $('#calculate').click(() => {
+        let stitchesPerInch = parseFloat($('input[name=stitchesPerInch]').val());
+        let rowsPerInch = parseFloat($('input[name=rowsPerInch]').val());
+        let circumferenceOfCuff = parseFloat($('input[name=circumferenceOfCuff]').val());
+        let lengthOfCuff = parseFloat($('input[name=lengthOfCuff]').val());
+        let lengthOfLeg = parseFloat($('input[name=lengthOfLeg]').val());
+        let lengthOfHeel = parseFloat($('input[name=lengthOfHeel]').val());
+        let lengthOfFoot = parseFloat($('input[name=lengthOfFoot]').val());
+        let lengthOfToe = parseFloat($('input[name=lengthOfToe]').val());
 
 
-        var numberOfCuffStitches = stitchCalculator.cuffStitches (stitchesPerInch, circumferenceOfCuff);
-        var thirdOfCuffStitches = stitchCalculator.thirdCuffStitches(numberOfCuffStitches);
-        var quarterOfCuffStitches = stitchCalculator.quarterCuffStitches(numberOfCuffStitches);
-        var numberOfCuffRows = stitchCalculator.cuffRows (rowsPerInch, lengthOfCuff);
-        var numberOfLegRows = stitchCalculator.legRows (rowsPerInch, lengthOfLeg);
-        var halfOfCuffStitches = stitchCalculator.halfCuffStitches(numberOfCuffStitches);
-        var numberOfHeelRows = stitchCalculator.heelRows (rowsPerInch, lengthOfHeel);
-        var heelTurn = stitchCalculator.heelTurn(halfOfCuffStitches);
-        var numberOfGussetPickUpStitches = stitchCalculator.gussetPickUpStitches(lengthOfHeel, rowsPerInch);
-        var gussetDecrease = stitchCalculator.gussetDecrease(halfOfCuffStitches,numberOfGussetPickUpStitches,heelTurn.heelTurnStitches);
-        var footRows = stitchCalculator.footRows(rowsPerInch,lengthOfFoot,gussetDecrease.gussetDecreaseRows);
+        let numberOfCuffStitches = stitchCalculator.cuffStitches (stitchesPerInch, circumferenceOfCuff);
+        let thirdOfCuffStitches = stitchCalculator.thirdCuffStitches(numberOfCuffStitches);
+        let quarterOfCuffStitches = stitchCalculator.quarterCuffStitches(numberOfCuffStitches);
+        let numberOfCuffRows = stitchCalculator.cuffRows (rowsPerInch, lengthOfCuff);
+        let numberOfLegRows = stitchCalculator.legRows (rowsPerInch, lengthOfLeg);
+        let halfOfCuffStitches = stitchCalculator.halfCuffStitches(numberOfCuffStitches);
+        let numberOfHeelRows = stitchCalculator.heelRows (rowsPerInch, lengthOfHeel);
+        let heelTurn = stitchCalculator.heelTurn(halfOfCuffStitches);
+        let numberOfGussetPickUpStitches = stitchCalculator.gussetPickUpStitches(lengthOfHeel, rowsPerInch);
+        let gussetDecrease = stitchCalculator.gussetDecrease(halfOfCuffStitches,numberOfGussetPickUpStitches,heelTurn.heelTurnStitches);
+        let footRows = stitchCalculator.footRows(rowsPerInch,lengthOfFoot,gussetDecrease.gussetDecreaseRows);
 
         
         $(".cuff-stitches").text(numberOfCuffStitches);
@@ -101,7 +101,7 @@ $(document).ready(function () {
         $(".foot-work").text(footRows);
     });
 
-    $("form").submit(function () {
+    $("form").submit(() => {
         return false;
     });
 });

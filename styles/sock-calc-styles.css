@@ -1,26 +1,26 @@
 body { 
   background-image: url(http://thepatternlibrary.com/img/y.png); 
-  font-family: 'Quicksand', sans-serif;
   color: rgb(53,93,121);
-    font-size: 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
 }
 @media (min-width: 1000px) {
     body { font-size: 20px; }
 }
 
 h1 {
+  color: rgb(116,82,160);
   font-family: 'Alegreya', serif;
   font-weight: 700;
   font-size: 2em;
-  color: rgb(116,82,160);
 }
 
 main {
   background: rgba(205,205,255,.5);
+  border-radius: 1em 0 1em 0;
+  margin: 2em auto;
   padding: 1em;
   width: 90%;
-  margin: 2em auto;
-  border-radius: 1em 0 1em 0;
 }
 @media (min-width: 1000px) {
     main { width: 75%; }
@@ -34,8 +34,8 @@ main > section {
 
 fieldset {
   border: 1px dashed rgb(116,82,160);
-  padding: 1em 1.5em 2.5em 1em;
   margin-bottom: 3em;
+  padding: 1em 1.5em 2.5em 1em;
 }
 
 legend {
@@ -48,28 +48,26 @@ label {
 }
 
 input[type="number"] { 
-  width: 100%; 
-  display: block;
   border: 1px solid rgb(116,82,160);
+  border-radius: 0;
+  display: block;
+  font-size: 1em;
   padding: .25em 0;
-  text-indent: .25em;
-    border-radius: 0;
-    font-size: 1em;
-    padding: .25em 0;
-    text-indent: .5em;
+  text-indent: .5em;
+  width: 100%; 
 }
 
 button {
-  width: 100%;
-  padding: .5em;
-  font-family: 'Alegreya', serif;
-  font-weight: 700;
-  font-size: 1.5em;
+  cursor: pointer;
   background: rgb(116,82,160);
   border: 0;
-  color: white;
   border-radius: .5em 0 .5em 0;
-  cursor: pointer;
+  color: white;
+  font-family: 'Alegreya', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: .5em;
+  width: 100%;
 }
 
 button:hover {
@@ -78,3 +76,9 @@ button:hover {
 
 li { margin-bottom: 1em; }
 li span { font-weight: bold; }
+li span:empty { 
+  background: yellow;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
