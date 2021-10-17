@@ -1,31 +1,13 @@
 $(document).ready(() => {
     const stitchCalculator = {
-        cuffStitches: (gaugeStitches, cuffCircumference) => {
-            let calcCuffStitches = gaugeStitches*cuffCircumference;
-            return calcCuffStitches;
-        },
-        cuffRows: (gaugeRows, cuffLength) => {
-            let calcCuffRows = gaugeRows*cuffLength;
-            return calcCuffRows;
-        },
-        legRows: (gaugeRows, legLength) => {
-            let calcLegRows = gaugeRows*legLength;
-            return calcLegRows;
-        },
-        halfCuffStitches: (cuffStitches) => {
-            let calcHalfCuffStitches = cuffStitches/2;
-            return calcHalfCuffStitches;
-        },
-        thirdCuffStitches: (cuffStitches) => {
-            let calcThirdCuffStitches = cuffStitches/3;
-            return calcThirdCuffStitches;
-        },
-        quarterCuffStitches: (cuffStitches) => {
-            let calcQuarterCuffStitches = cuffStitches/4;
-            return calcQuarterCuffStitches;
-        },
+        cuffStitches: (gaugeStitches, cuffCircumference) => gaugeStitches * cuffCircumference,
+        cuffRows: (gaugeRows, cuffLength) => gaugeRows * cuffLength,
+        legRows: (gaugeRows, legLength) =>  gaugeRows * legLength,
+        halfCuffStitches: (cuffStitches) => cuffStitches / 2,
+        thirdCuffStitches: (cuffStitches) => cuffStitches / 3,
+        quarterCuffStitches: (cuffStitches) => cuffStitches / 4,
         heelRows: (gaugeRows, heelLength) => {
-            let calcHeelRows = gaugeRows*heelLength;
+            let calcHeelRows = gaugeRows * heelLength;
             if (calcHeelRows % 2 > 0) {
                 calcHeelRows += 1;
             }
@@ -43,10 +25,7 @@ $(document).ready(() => {
                 heelDecreaseStitches: heelDecreaseStitches
             };
         },
-        gussetPickUpStitches: (heelLength, gaugeRows) => {
-            let calcGussetPickUpStitches = gaugeRows*heelLength;
-            return calcGussetPickUpStitches;
-        },
+        gussetPickUpStitches: (heelLength, gaugeRows) => gaugeRows * heelLength,
         gussetDecrease: (halfCuffStitches, gussetPickUpStitches, heelTurnStitches) => {
             let calcGussetRemainderStitches = halfCuffStitches + (gussetPickUpStitches * 2) + heelTurnStitches;
             let calcGussetDecreaseRows = calcGussetRemainderStitches - (halfCuffStitches * 2);
@@ -55,10 +34,7 @@ $(document).ready(() => {
                 gussetDecreaseRows: calcGussetDecreaseRows
             };
         },
-        footRows: (gaugeRows, footLength, gussetDecreaseRows) => {
-            let calcFootRows = (footLength*gaugeRows) - gussetDecreaseRows;
-            return calcFootRows;
-        }
+        footRows: (gaugeRows, footLength, gussetDecreaseRows) => (footLength * gaugeRows) - gussetDecreaseRows
     };
     
     $('#calculate').click(() => {
